@@ -1,14 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import '../css/App.css';
+import {HeaderBlock} from "ts/components/commonComponents";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        test
-      </header>
-    </div>
+    <HeaderBlock></HeaderBlock>
   );
 }
 
