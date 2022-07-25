@@ -3,7 +3,9 @@ import {HeaderBlock} from "ts/components/commonComponents";
 
 function App() {
   return (
-    <HeaderBlock></HeaderBlock>
+    <div>
+      <HeaderBlock></HeaderBlock>
+    </div>
   );
 }
 

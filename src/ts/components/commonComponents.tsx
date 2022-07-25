@@ -1,9 +1,12 @@
 import React, { Component, useRef, useMemo }  from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import { Button, Table, ModalHeader } from 'react-bootstrap';
+import {YI_LOGO, YI_BACK} from "ts/components/videoComponents";
 
 import {useOffsetTop} from "ts/utils/myScroll";
+import {TopImages} from "ts/contents/TopContents";
 import 'css/common.css';
+import YILogoPath from 'images/YI.png'
 
 // const observer = new IntersectionObserver(
 //     (entries) => {
@@ -21,12 +24,8 @@ export const HeaderBlock : React.FC = () => {
     // スクロール位置を取得
     const iconRef = useRef(null);
     const { pageOffsetTop, viewportTop } = useOffsetTop(iconRef);
-    
-    const scrollToTop = () => {
-        scroll.scrollToTop();
-    }
 
-    const maxIconSize = 90; // 要素の最大サイズ
+    const maxIconSize = 95; // 要素の最大サイズ
     const minIconSize = 100; // 要素の最小サイズ
 
     const iconSize = useMemo(() => {
@@ -41,21 +40,27 @@ export const HeaderBlock : React.FC = () => {
         return size.toFixed(1);
 
       }, [pageOffsetTop, viewportTop]);
-
+    
+    
     
     return (
         <div>
-            <div>aaaa</div>
-            <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
+            <YI_LOGO></YI_LOGO>
+            <YI_BACK></YI_BACK>
             <header ref={iconRef}
                 style={{width:`${iconSize}%`, margin: `auto`}}
                 className={"header " + (()=>{return(iconSize >= 100)? "fixed":""})()}
             >
-                aaaa
+                <nav className="navbar">
+                    <img src={YILogoPath} />
+                    test
+                </nav>
             </header>
-            <p>a</p>  <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-            <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-            <Button onClick={scrollToTop}>test</Button>
+
+            <div className="container">
+                <TopImages></TopImages>
+            </div>
+
         </div>
     );
 }
